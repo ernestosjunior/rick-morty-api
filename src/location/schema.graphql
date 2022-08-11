@@ -12,6 +12,7 @@ input NewLocation {
 
 type Query {
   location: Location!
+  locations: [Location!]!
 }
 
 type Mutation {
