@@ -12,6 +12,7 @@ input NewOrigin {
 
 type Query {
   origin: Origin!
+  origins: [Origin!]!
 }
 
 type Mutation {
