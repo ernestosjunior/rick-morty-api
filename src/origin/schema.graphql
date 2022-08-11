@@ -1,0 +1,19 @@
+type Origin {
+  id: Int
+  name: String
+  url: String
+  characteres: [Character]
+}
+
+input NewOrigin {
+  name: String!
+  url: String!
+}
+
+type Query {
+  origin: Origin!
+}
+
+type Mutation {
+  createOrigin(input: NewOrigin): Origin!
+}

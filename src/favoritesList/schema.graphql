@@ -1,0 +1,19 @@
+type FavoritesList {
+  user: User
+  userId: Int
+  character: Character
+  characterId: Int
+}
+
+input NewFavoritesList {
+  userId: Int!
+  characterId: Int!
+}
+
+type Query {
+  favoritesList: FavoritesList!
+}
+
+type Mutation {
+  createFavorites(input: NewFavoritesList): FavoritesList!
+}

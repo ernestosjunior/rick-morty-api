@@ -1,0 +1,19 @@
+type Location {
+  id: Int
+  name: String
+  url: String
+  characteres: [Character]
+}
+
+input NewLocation {
+  name: String!
+  url: String!
+}
+
+type Query {
+  location: Location!
+}
+
+type Mutation {
+  createLocation(input: NewLocation): Location!
+}

@@ -1,0 +1,39 @@
+type Character {
+  id: ID!
+  name: String!
+  status: String!
+  species: String!
+  type: String!
+  gender: String!
+  originId: Int
+  origin: Origin
+  locationId: Int
+  location: Location
+  image: String!
+  episode: [String!]!
+  url: String!
+  created: String!
+  users: [FavoritesList]
+}
+
+input NewCharacter {
+  name: String!
+  status: String!
+  species: String!
+  type: String!
+  gender: String!
+  originId: Int
+  locationId: Int
+  image: String!
+  episode: [String!]!
+  url: String!
+  created: String!
+}
+
+type Query {
+  character: Character!
+}
+
+type Mutation {
+  createCharacter(input: NewCharacter): Character!
+}
