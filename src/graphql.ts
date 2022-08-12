@@ -112,7 +112,7 @@ export class Origin {
 }
 
 export class User {
-  id: number;
+  id: string;
   name: string;
   email: string;
   password: string;
