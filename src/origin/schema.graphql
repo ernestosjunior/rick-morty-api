@@ -13,6 +13,7 @@ input NewOrigin {
 type Query {
   origin(id: ID!): Origin!
   origins: [Origin!]!
+  originByName(name: String): Origin!
 }
 
 type Mutation {
