@@ -10,6 +10,12 @@ export class OriginResolvers {
 
   @UseGuards(GqlAuthGuard)
   @Query('origin')
+  async originByName(@Args('name') args: string) {
+    return this.originService.originbyname(args);
+  }
+
+  @UseGuards(GqlAuthGuard)
+  @Query('originByName')
   async origin(@Args('id') args: string) {
     return this.originService.origin(args);
   }

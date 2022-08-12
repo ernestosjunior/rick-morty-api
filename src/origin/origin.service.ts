@@ -19,7 +19,7 @@ export class OriginService {
     return this.prisma.origin.findMany({});
   }
 
-  async originByName(name: string): Promise<Origin | null> {
+  async originbyname(name: string): Promise<Origin | null> {
     return this.prisma.origin.findUnique({
       where: {
         name,
