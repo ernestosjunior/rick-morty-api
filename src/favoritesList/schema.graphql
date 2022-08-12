@@ -11,7 +11,7 @@ input NewFavoritesList {
 }
 
 type Query {
-  favoritesList: FavoritesList!
+  favoritesList(id: String): [FavoritesList!]!
 }
 
 type Mutation {

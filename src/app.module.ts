@@ -5,6 +5,7 @@ import { OriginModule } from './origin/origin.module';
 import { LocationModule } from './location/location.module';
 import { AuthModule } from './auth/auth.module';
 import { CharacterModule } from 'src/character/character.module';
+import { FavoritesListModule } from 'src/favoritesList/favoritesList.module';
 import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
 
 @Module({
@@ -14,6 +15,7 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
     LocationModule,
     AuthModule,
     CharacterModule,
+    FavoritesListModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       typePaths: ['./**/*.graphql'],
       driver: ApolloDriver,
