@@ -1,5 +1,5 @@
 type Origin {
-  id: Int
+  id: ID!
   name: String
   url: String
   characteres: [Character]
@@ -11,7 +11,7 @@ input NewOrigin {
 }
 
 type Query {
-  origin: Origin!
+  origin(id: ID!): Origin!
   origins: [Origin!]!
 }
 

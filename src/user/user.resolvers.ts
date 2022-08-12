@@ -11,6 +11,11 @@ export class UserResolvers {
     return this.userService.user(args);
   }
 
+  @Query('userByEmail')
+  async userByEmail(@Args('email') args: string) {
+    return this.userService.userbyemail(args);
+  }
+
   @Mutation('createUser')
   async create(@Args('input') args: NewUser) {
     return this.userService.createuser(args);

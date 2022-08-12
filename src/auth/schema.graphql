@@ -1,0 +1,13 @@
+input NewLogin {
+  email: String
+  password: String
+}
+
+type Auth {
+  user: User
+  token: String
+}
+
+type Mutation {
+  login(data: NewLogin): Auth
+}

@@ -17,17 +17,17 @@ type Character {
 }
 
 input NewCharacter {
-  name: String!
-  status: String!
-  species: String!
-  type: String!
-  gender: String!
+  name: String
+  status: String
+  species: String
+  type: String
+  gender: String
   originId: Int
   locationId: Int
-  image: String!
-  episode: [String!]!
-  url: String!
-  created: String!
+  image: String
+  episode: [String]
+  url: String
+  created: String
 }
 
 type Query {
