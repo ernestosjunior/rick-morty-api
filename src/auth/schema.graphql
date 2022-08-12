@@ -3,11 +3,11 @@ input NewLogin {
   password: String
 }
 
-type Auth {
+type AuthType {
   user: User
   token: String
 }
 
 type Mutation {
-  login(data: NewLogin): Auth
+  login(data: NewLogin): AuthType!
 }

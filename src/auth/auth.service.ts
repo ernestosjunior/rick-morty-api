@@ -3,12 +3,13 @@ import { UserService } from 'src/user/user.service';
 import { AuthInput } from './auth.input';
 import { generateToken } from 'src/utils/token';
 import { decryptPassword } from 'src/utils/crypto';
+import { AuthType } from './auth.type';
 
 @Injectable()
 export class AuthService {
   constructor(private userService: UserService) {}
 
-  async validateUser(data: AuthInput): Promise<any> {
+  async validateUser(data: AuthInput): Promise<AuthType> {
     const user = await this.userService.userbyemail(data.email);
     const isValidPassword = decryptPassword(data.password, user.password);
 
