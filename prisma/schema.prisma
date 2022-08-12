@@ -27,9 +27,9 @@ model Character {
 	species String
 	type String
 	gender String
-  originId Int  @unique
+  originId Int  
 	origin Origin @relation(fields: [originId], references: [id])
-  locationId Int  @unique
+  locationId Int  
 	location Location @relation(fields: [locationId], references: [id])
 	image String
 	episode String[]
