@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
-import { AuthInput } from './auth.input';
+import { AuthInput } from './dto/auth.input';
 import { User as UserInt } from '@prisma/client';
 import { decryptPassword } from 'src/utils/crypto';
-import { AuthType } from './auth.type';
+import { AuthType } from './dto/auth.type';
 
 @Injectable()
 export class AuthService {
