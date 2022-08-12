@@ -15,6 +15,7 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       typePaths: ['./**/*.graphql'],
       driver: ApolloDriver,
+      context: ({ req }) => ({ req }),
     }),
   ],
   controllers: [],

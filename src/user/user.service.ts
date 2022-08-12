@@ -9,11 +9,13 @@ export class UserService {
   constructor(private prisma: PrismaService) {}
 
   async user(id: string): Promise<User | null> {
-    return this.prisma.user.findUnique({
+    const user = await this.prisma.user.findUnique({
       where: {
         id: parseInt(id),
       },
     });
+    delete user.password;
+    return user;
   }
 
   async userbyemail(email: string): Promise<User | null> {

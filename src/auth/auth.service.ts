@@ -1,13 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
 import { AuthInput } from './auth.input';
-import { generateToken } from 'src/utils/token';
+import { User as UserInt } from '@prisma/client';
 import { decryptPassword } from 'src/utils/crypto';
 import { AuthType } from './auth.type';
 
 @Injectable()
 export class AuthService {
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private jwtService: JwtService,
+  ) {}
 
   async validateUser(data: AuthInput): Promise<AuthType> {
     const user = await this.userService.userbyemail(data.email);
@@ -17,6 +21,13 @@ export class AuthService {
       throw new Error('Invalid credentials.');
     }
 
-    return { user, token: generateToken(user) };
+    const token = await this.jwtToken(user);
+
+    return { user, token };
+  }
+
+  private async jwtToken(user: UserInt): Promise<string> {
+    const payload = { username: user.name, sub: user.id };
+    return this.jwtService.signAsync(payload);
   }
 }
