@@ -21,6 +21,12 @@ export class LocationResolvers {
   }
 
   @UseGuards(GqlAuthGuard)
+  @Query('locationByName')
+  async locationbyname(@Args('name') args: string) {
+    return this.locationService.locationbyname(args);
+  }
+
+  @UseGuards(GqlAuthGuard)
   @Mutation('createLocation')
   async create(@Args('input') args: NewLocation) {
     return this.locationService.createlocation(args);

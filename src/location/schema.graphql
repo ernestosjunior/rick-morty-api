@@ -13,6 +13,7 @@ input NewLocation {
 type Query {
   location(id: ID!): Location!
   locations: [Location!]!
+  locationByName(name: String): Location!
 }
 
 type Mutation {
