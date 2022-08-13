@@ -4,7 +4,7 @@ services:
   app:
     build: .
     container_name: "rick_morty_api"
-    command: sh -c "npx prisma migrate deploy && yarn start:prod"
+    command: sh -c "npx prisma migrate deploy && yarn start"
     ports:
       - 5000:5000
     volumes:
