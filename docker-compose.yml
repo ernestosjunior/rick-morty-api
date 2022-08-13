@@ -1,23 +1,39 @@
-version: '3.1'
+version: '3.7'
 
 services:
-  db:
-    image: postgres
-    restart: always
+  api:
+    container_name: rick_morty_api
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     ports:
-      - 5432:5432
+      - ${PORT}:${PORT}
+      - 9229:9229
+    command: yarn start:debug
+    env_file:
+      - .env
+    networks:
+      - backend
+    depends_on:
+      - postgres
+  postgres:
+    container_name: rick_morty_db
+    image: postgres:9.6-alpine
+    networks:
+      - backend
     environment:
       POSTGRES_PASSWORD: ${PG_PASS}
       POSTGRES_USER: ${PG_USER}
       POSTGRES_DB: ${PG_DB}
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: 'admin@gmail.com'
-      PGADMIN_DEFAULT_PASSWORD: 'admin'
+      PG_DATA: /var/lib/postgresql/data
     ports:
-      - 5050:80
-    depends_on:
-      - postgresql
+      - 5432:5432
+    volumes:
+      - api_db_data:/var/lib/postgresql/data
+networks:
+  backend:
+volumes:
+  api_db_data:
