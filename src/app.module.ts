@@ -20,8 +20,10 @@ import { ApolloDriverConfig, ApolloDriver } from '@nestjs/apollo';
       typePaths: ['./**/*.graphql'],
       driver: ApolloDriver,
       context: ({ req }) => ({ req }),
+      path: '/graphql',
       cors: {
         origin: '*',
+        credentials: false,
       },
     }),
   ],
