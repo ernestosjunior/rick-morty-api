@@ -92,6 +92,8 @@ export abstract class IQuery {
 
     abstract characteres(): Character[] | Promise<Character[]>;
 
+    abstract characterByApiId(id?: Nullable<string>): Character | Promise<Character>;
+
     abstract favoritesList(id?: Nullable<string>): FavoritesList[] | Promise<FavoritesList[]>;
 
     abstract location(id: string): Location | Promise<Location>;

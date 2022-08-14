@@ -35,6 +35,7 @@ input NewCharacter {
 type Query {
   character(id: ID!): Character!
   characteres: [Character!]!
+  characterByApiId(id: String): Character!
 }
 
 type Mutation {

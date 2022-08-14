@@ -15,6 +15,14 @@ export class CharacterService {
     });
   }
 
+  async characterbyapiid(id: string): Promise<Character | null> {
+    return this.prisma.character.findFirst({
+      where: {
+        apiId: parseInt(id),
+      },
+    });
+  }
+
   async characteres(): Promise<Character[]> {
     return this.prisma.character.findMany({});
   }

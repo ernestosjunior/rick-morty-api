@@ -15,6 +15,12 @@ export class CharacterResolvers {
   }
 
   @UseGuards(GqlAuthGuard)
+  @Query('characterByApiId')
+  async characterByApiId(@Args('id') args: string) {
+    return this.characterService.characterbyapiid(args);
+  }
+
+  @UseGuards(GqlAuthGuard)
   @Query('characteres')
   async characteres() {
     return this.characterService.characteres();
