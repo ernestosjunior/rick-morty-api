@@ -14,7 +14,7 @@ export class UserService {
         id: parseInt(id),
       },
     });
-    delete user.password;
+    user.password = '';
     return user;
   }
 
