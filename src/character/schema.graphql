@@ -1,5 +1,6 @@
 type Character {
   id: ID!
+  apiId: Int
   name: String!
   status: String!
   species: String!
@@ -17,6 +18,7 @@ type Character {
 }
 
 input NewCharacter {
+  apiId: Int
   name: String
   status: String
   species: String
