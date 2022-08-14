@@ -41,14 +41,14 @@ model Character {
 
 model Origin {
   id Int @id @default(autoincrement()) 
-  name String @unique
+  name String 
   url String
   characteres Character[]
 }
 
 model Location {
   id Int @id @default(autoincrement()) 
-  name String @unique
+  name String 
   url String
  characteres Character[]
 } 

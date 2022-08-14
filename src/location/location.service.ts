@@ -15,14 +15,6 @@ export class LocationService {
     });
   }
 
-  async locationbyname(name: string): Promise<Location | null> {
-    return this.prisma.location.findUnique({
-      where: {
-        name,
-      },
-    });
-  }
-
   async locations(): Promise<Location[]> {
     return this.prisma.location.findMany({});
   }
