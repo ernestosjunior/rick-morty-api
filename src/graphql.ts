@@ -14,6 +14,7 @@ export class NewLogin {
 }
 
 export class NewCharacter {
+    apiId?: Nullable<number>;
     name?: Nullable<string>;
     status?: Nullable<string>;
     species?: Nullable<string>;
@@ -69,6 +70,7 @@ export abstract class IMutation {
 
 export class Character {
     id: string;
+    apiId?: Nullable<number>;
     name: string;
     status: string;
     species: string;
@@ -96,13 +98,9 @@ export abstract class IQuery {
 
     abstract locations(): Location[] | Promise<Location[]>;
 
-    abstract locationByName(name?: Nullable<string>): Location | Promise<Location>;
-
     abstract origin(id: string): Origin | Promise<Origin>;
 
     abstract origins(): Origin[] | Promise<Origin[]>;
-
-    abstract originByName(name?: Nullable<string>): Origin | Promise<Origin>;
 
     abstract user(id: string): User | Promise<User>;
 

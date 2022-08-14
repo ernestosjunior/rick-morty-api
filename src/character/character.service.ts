@@ -21,6 +21,7 @@ export class CharacterService {
 
   async createcharacter(input: NewCharacter): Promise<Character> {
     const {
+      apiId,
       name,
       status,
       species,
@@ -36,6 +37,7 @@ export class CharacterService {
 
     return this.prisma.character.create({
       data: {
+        apiId,
         name,
         status,
         species,
